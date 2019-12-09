@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56277CF0EEB875199E7DB2D4 /* libPods-cocktail_db.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1197B6E3DB882495699E8768 /* libPods-cocktail_db.a */; };
+		5240B29D68C3C29162FC28D1 /* Pods_cocktail_db.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */; };
 		CC1968A9239E643B00EB49DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968A8239E643B00EB49DB /* AppDelegate.swift */; };
 		CC1968B2239E643E00EB49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC1968B1239E643E00EB49DB /* Assets.xcassets */; };
 		CC1968C9239E705000EB49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1968C8239E705000EB49DB /* LaunchScreen.storyboard */; };
@@ -17,7 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1197B6E3DB882495699E8768 /* libPods-cocktail_db.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cocktail_db.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C874878D0298534A41064B5 /* Pods-cocktail_db.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocktail_db.debug.xcconfig"; path = "Target Support Files/Pods-cocktail_db/Pods-cocktail_db.debug.xcconfig"; sourceTree = "<group>"; };
 		AD99B699AE1A063181806215 /* Pods-cocktail_db.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocktail_db.release.xcconfig"; path = "Target Support Files/Pods-cocktail_db/Pods-cocktail_db.release.xcconfig"; sourceTree = "<group>"; };
 		CC1968A5239E643B00EB49DB /* Cocktail DB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail DB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +27,7 @@
 		CC1968CA239E71FC00EB49DB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCocktailsTableViewController.swift; sourceTree = "<group>"; };
 		CC1968CE239E76D600EB49DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cocktail_db.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56277CF0EEB875199E7DB2D4 /* libPods-cocktail_db.a in Frameworks */,
+				5240B29D68C3C29162FC28D1 /* Pods_cocktail_db.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +45,7 @@
 		3F3DFFC2C419B70C392FF866 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1197B6E3DB882495699E8768 /* libPods-cocktail_db.a */,
+				F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +112,7 @@
 		CC1968BE239E6F7300EB49DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CCB0B86D239E9A9A00D63DFF /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,6 +157,13 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		CCB0B86D239E9A9A00D63DFF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -163,10 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC1968B9239E643E00EB49DB /* Build configuration list for PBXNativeTarget "cocktail_db" */;
 			buildPhases = (
-				4CCCAD1CDE67B7F2C80F2EF7 /* [CP] Check Pods Manifest.lock */,
 				CC1968A1239E643B00EB49DB /* Sources */,
+				CCB0B86E239EA11E00D63DFF /* R generation */,
+				4CCCAD1CDE67B7F2C80F2EF7 /* [CP] Check Pods Manifest.lock */,
 				CC1968A2239E643B00EB49DB /* Frameworks */,
 				CC1968A3239E643B00EB49DB /* Resources */,
+				6F4AA539A08F41DFFB2F58F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,6 +255,43 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6F4AA539A08F41DFFB2F58F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cocktail_db/Pods-cocktail_db-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cocktail_db/Pods-cocktail_db-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cocktail_db/Pods-cocktail_db-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCB0B86E239EA11E00D63DFF /* R generation */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = "R generation";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/temp/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/temp/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
