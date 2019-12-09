@@ -14,6 +14,9 @@
 		CC1968CB239E71FC00EB49DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1968CA239E71FC00EB49DB /* Main.storyboard */; };
 		CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */; };
 		CC1968CF239E76D600EB49DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968CE239E76D600EB49DB /* SceneDelegate.swift */; };
+		CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */; };
+		CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B872239EB69C00D63DFF /* R.generated.swift */; };
+		CCEC489F239EC0F5009FC4AE /* LTFilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC489E239EC0F5009FC4AE /* LTFilterTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		CC1968CA239E71FC00EB49DB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCocktailsTableViewController.swift; sourceTree = "<group>"; };
 		CC1968CE239E76D600EB49DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+MBProgressHud.swift"; sourceTree = "<group>"; };
+		CCB0B872239EB69C00D63DFF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		CCEC489E239EC0F5009FC4AE /* LTFilterTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFilterTableViewController.swift; sourceTree = "<group>"; };
 		F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cocktail_db.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -93,6 +99,7 @@
 		CC1968BC239E6F4900EB49DB /* Сlasses */ = {
 			isa = PBXGroup;
 			children = (
+				CCB06F35239EBB50000B6A9D /* Extensions */,
 				CC1968C1239E6F9600EB49DB /* Helpers */,
 				CC1968C0239E6F9100EB49DB /* API */,
 				CC1968BF239E6F7A00EB49DB /* Controllers */,
@@ -144,6 +151,7 @@
 			children = (
 				CC1968C8239E705000EB49DB /* LaunchScreen.storyboard */,
 				CC1968B6239E643E00EB49DB /* Info.plist */,
+				CCB0B872239EB69C00D63DFF /* R.generated.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -153,8 +161,17 @@
 			children = (
 				CC1968CA239E71FC00EB49DB /* Main.storyboard */,
 				CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */,
+				CCEC489E239EC0F5009FC4AE /* LTFilterTableViewController.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		CCB06F35239EBB50000B6A9D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CCB0B86D239E9A9A00D63DFF /* Cells */ = {
@@ -171,8 +188,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CC1968B9239E643E00EB49DB /* Build configuration list for PBXNativeTarget "cocktail_db" */;
 			buildPhases = (
+				CCB0B86E239EA11E00D63DFF /* Rswift */,
 				CC1968A1239E643B00EB49DB /* Sources */,
-				CCB0B86E239EA11E00D63DFF /* R generation */,
 				4CCCAD1CDE67B7F2C80F2EF7 /* [CP] Check Pods Manifest.lock */,
 				CC1968A2239E643B00EB49DB /* Frameworks */,
 				CC1968A3239E643B00EB49DB /* Resources */,
@@ -273,7 +290,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cocktail_db/Pods-cocktail_db-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CCB0B86E239EA11E00D63DFF /* R generation */ = {
+		CCB0B86E239EA11E00D63DFF /* Rswift */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,15 +300,15 @@
 			inputPaths = (
 				"$TEMP_DIR/rswift-lastrun",
 			);
-			name = "R generation";
+			name = Rswift;
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/temp/R.generated.swift,
+				"$SRCROOT/cocktail_db/Supporting Files/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/temp/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/cocktail_db/Supporting Files/R.generated.swift\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -303,6 +320,9 @@
 				CC1968A9239E643B00EB49DB /* AppDelegate.swift in Sources */,
 				CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */,
 				CC1968CF239E76D600EB49DB /* SceneDelegate.swift in Sources */,
+				CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */,
+				CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */,
+				CCEC489F239EC0F5009FC4AE /* LTFilterTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

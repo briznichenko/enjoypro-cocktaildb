@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g76-qH-D2w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7uu-hF-WSg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -7,10 +7,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cocktails Table View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="aOy-Fe-Hvd">
+            <objects>
+                <navigationController id="7uu-hF-WSg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nob-vY-5aM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="g76-qH-D2w" kind="relationship" relationship="rootViewController" id="UJk-Yj-rOT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHd-c8-ow4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-530" y="-58"/>
+        </scene>
+        <!--Drinks-->
         <scene sceneID="g7D-MJ-fDy">
             <objects>
-                <tableViewController id="g76-qH-D2w" customClass="LTCocktailsTableViewController" customModule="Cocktail_DB" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LTCocktailsTableViewController" title="Drinks" id="g76-qH-D2w" customClass="LTCocktailsTableViewController" customModule="Cocktail_DB" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zYh-Wp-kpe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,10 +62,61 @@
                             <outlet property="delegate" destination="g76-qH-D2w" id="O5h-yZ-y1f"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="OCF-LC-N3m">
+                        <barButtonItem key="rightBarButtonItem" image="filter_off" style="plain" id="i4v-OT-FJu">
+                            <connections>
+                                <segue destination="NkM-b2-XF8" kind="show" identifier="toFilterViewController" id="0w6-bT-ywl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIR-x4-3QV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-75" y="-5"/>
+            <point key="canvasLocation" x="206" y="-58"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="3E3-eY-Ssp">
+            <objects>
+                <tableViewController storyboardIdentifier="LTFilterTableViewController" title="Filters" id="NkM-b2-XF8" customClass="LTFilterTableViewController" customModule="Cocktail_DB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="36k-zL-7g4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="ghz-tO-REj">
+                            <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBy-c4-htO">
+                                    <rect key="frame" x="184" y="6" width="46" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FilterCell" id="bCQ-5M-wTO">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bCQ-5M-wTO" id="tNu-WH-WbA">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NkM-b2-XF8" id="3LH-Ll-ydn"/>
+                            <outlet property="delegate" destination="NkM-b2-XF8" id="Ku7-IG-uWX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="mrm-fM-5lh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OsH-Dq-7Vh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="917" y="-58"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="filter_off" width="29" height="29"/>
+    </resources>
 </document>

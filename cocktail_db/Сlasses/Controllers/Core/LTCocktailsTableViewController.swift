@@ -13,6 +13,7 @@ import Rswift
 final class LTCocktailsTableViewController: UITableViewController {
     private struct Constants {
         static let cocktailCellReuseIdentifier = "CocktailCell"
+        static let toFilterViewControllerSegueIdentifier = "toFilterViewController"
     }
     
     // MARK: - Properties
@@ -21,7 +22,8 @@ final class LTCocktailsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MBProgressHUD.showAdded(to: view, animated: true)
+        navigationController?.showProgressHud()
+        navigationController?.hideProgressHud(afterDelay: 10)
     }
 
     // MARK: - Table view data source
@@ -37,7 +39,8 @@ final class LTCocktailsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cocktailCellReuseIdentifier, for: indexPath)
 
-       // cell.imageView?.image = R.image.cocktailCellPlaceholder()
+        cell.imageView?.image = R.image.cocktailCellPlaceholder()
+        cell.textLabel?.text = "Mock"
 
         return cell
     }
@@ -51,5 +54,10 @@ final class LTCocktailsTableViewController: UITableViewController {
 
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // TODO: - Mock
+        if let test = R.segue.ltCocktailsTableViewController.toFilterViewController(segue: segue) {
+            test.destination.tableView.backgroundColor = .systemPink
+            navigationController?.hideProgressHud()
+        }
     }
 }
