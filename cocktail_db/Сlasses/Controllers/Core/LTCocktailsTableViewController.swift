@@ -132,6 +132,8 @@ extension LTCocktailsTableViewController {
     }
 }
 
+
+/* Using custom imaged cell because default UITableViewCell imageView has resizing issues */
 class CustomImagedTableViewCell: UITableViewCell {
     @IBOutlet private var thumbnailImageView: UIImageView!
     @IBOutlet private var nameLabel: UILabel!

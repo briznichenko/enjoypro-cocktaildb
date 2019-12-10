@@ -21,7 +21,12 @@ private func JSONResponseDataFormatter(_ data: Data) -> Data {
     }
 }
 
+#if DEBUG
 let cocktailDBProvider = MoyaProvider<CocktailDB>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
+#else
+let cocktailDBProvider = MoyaProvider<CocktailDB>(plugins: [])
+#endif
+
 
 public enum CocktailDB {
     case categories
