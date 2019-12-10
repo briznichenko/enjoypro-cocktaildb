@@ -20,6 +20,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nob-vY-5aM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="g76-qH-D2w" kind="relationship" relationship="rootViewController" id="UJk-Yj-rOT"/>
@@ -91,17 +92,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSz-lE-Svs">
-                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSz-lE-Svs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="708"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="U4F-Fm-ztt">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="Old-EI-vR3" id="DhZ-gX-gcT"/>
+                                    <outlet property="delegate" destination="Old-EI-vR3" id="60W-MB-3Zv"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-QJ-neM">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="796" width="414" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K21-9H-hf5">
                                         <rect key="frame" x="31" y="0.0" width="352" height="50"/>
@@ -133,7 +139,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="O2u-ad-PVa" firstAttribute="bottom" secondItem="mfT-QJ-neM" secondAttribute="bottom" id="SGd-zE-Tka"/>
+                            <constraint firstItem="O2u-ad-PVa" firstAttribute="bottom" secondItem="mfT-QJ-neM" secondAttribute="bottom" constant="16" id="SGd-zE-Tka"/>
                             <constraint firstItem="fSz-lE-Svs" firstAttribute="top" secondItem="O2u-ad-PVa" secondAttribute="top" id="UlZ-dz-Wii"/>
                             <constraint firstItem="O2u-ad-PVa" firstAttribute="trailing" secondItem="fSz-lE-Svs" secondAttribute="trailing" id="ZT5-ei-P2Z"/>
                             <constraint firstItem="mfT-QJ-neM" firstAttribute="leading" secondItem="O2u-ad-PVa" secondAttribute="leading" id="a7Y-O4-nfa"/>

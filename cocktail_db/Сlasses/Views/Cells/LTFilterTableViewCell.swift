@@ -9,7 +9,6 @@
 import UIKit
 
 class LTFilterTableViewCell: UITableViewCell {
-    @IBOutlet private var selectionButton: UIButton!
     @IBOutlet private var filterNameLabel: UILabel!
 
     func setup(filterName: String) {
@@ -18,7 +17,7 @@ class LTFilterTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        selectionButton.isSelected = selected
+        accessoryType = isSelected ? .checkmark : .none
     }
     
 }

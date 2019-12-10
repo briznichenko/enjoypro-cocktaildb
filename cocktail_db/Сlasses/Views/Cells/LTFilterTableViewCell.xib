@@ -22,25 +22,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRG-St-MbG">
-                        <rect key="frame" x="388" y="16.5" width="11" height="11"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="iRG-St-MbG" secondAttribute="height" id="EL2-ky-Ila"/>
-                        </constraints>
-                        <state key="selected" image="ic_checkmark"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9X-Hq-xcp">
-                        <rect key="frame" x="28" y="12.5" width="360" height="19"/>
+                        <rect key="frame" x="28" y="12.5" width="370" height="19"/>
                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="iRG-St-MbG" secondAttribute="trailing" constant="15" id="5BP-iV-xCd"/>
-                    <constraint firstItem="iRG-St-MbG" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.25" id="8Nj-k5-3yW"/>
-                    <constraint firstItem="iRG-St-MbG" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="D5E-7a-AgO"/>
-                    <constraint firstItem="iRG-St-MbG" firstAttribute="leading" secondItem="M9X-Hq-xcp" secondAttribute="trailing" id="gCM-Cd-0wT"/>
+                    <constraint firstAttribute="trailing" secondItem="M9X-Hq-xcp" secondAttribute="trailing" constant="16" id="cG8-t8-uI5"/>
                     <constraint firstItem="M9X-Hq-xcp" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="s8Y-Zw-hcv"/>
                     <constraint firstItem="M9X-Hq-xcp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="28" id="xNU-d2-JOn"/>
                 </constraints>
@@ -48,12 +38,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="filterNameLabel" destination="M9X-Hq-xcp" id="LuR-9w-tSu"/>
-                <outlet property="selectionButton" destination="iRG-St-MbG" id="yWc-yu-UUw"/>
             </connections>
             <point key="canvasLocation" x="205.79710144927537" y="145.3125"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="ic_checkmark" width="50" height="50"/>
-    </resources>
 </document>

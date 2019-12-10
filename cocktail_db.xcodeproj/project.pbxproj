@@ -13,7 +13,6 @@
 		CC1968C9239E705000EB49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1968C8239E705000EB49DB /* LaunchScreen.storyboard */; };
 		CC1968CB239E71FC00EB49DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1968CA239E71FC00EB49DB /* Main.storyboard */; };
 		CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */; };
-		CC1968CF239E76D600EB49DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968CE239E76D600EB49DB /* SceneDelegate.swift */; };
 		CC8E01A2239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01A1239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift */; };
 		CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */; };
 		CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B872239EB69C00D63DFF /* R.generated.swift */; };
@@ -34,6 +33,7 @@
 		CCF000FB239FB59700786737 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000EE239FB59700786737 /* Roboto-Thin.ttf */; };
 		CCF000FC239FB59700786737 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000EF239FB59700786737 /* Roboto-Black.ttf */; };
 		CCF000FF239FB5F800786737 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF000FE239FB5F800786737 /* UIView+Style.swift */; };
+		E8867C03239FFEB10016BF2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8867C02239FFEB10016BF2A /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,6 @@
 		CC1968C8239E705000EB49DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC1968CA239E71FC00EB49DB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCocktailsTableViewController.swift; sourceTree = "<group>"; };
-		CC1968CE239E76D600EB49DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CC8E01A1239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+CocktailDBStyle.swift"; sourceTree = "<group>"; };
 		CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+MBProgressHud.swift"; sourceTree = "<group>"; };
 		CCB0B872239EB69C00D63DFF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -67,6 +66,7 @@
 		CCF000EE239FB59700786737 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		CCF000EF239FB59700786737 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		CCF000FE239FB5F800786737 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
+		E8867C02239FFEB10016BF2A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cocktail_db.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -122,7 +122,7 @@
 			children = (
 				CCF000E0239FB58800786737 /* Resources */,
 				CC1968A8239E643B00EB49DB /* AppDelegate.swift */,
-				CC1968CE239E76D600EB49DB /* SceneDelegate.swift */,
+				E8867C02239FFEB10016BF2A /* SceneDelegate.swift */,
 				CC1968B1239E643E00EB49DB /* Assets.xcassets */,
 				CC1968C2239E6FA400EB49DB /* Supporting Files */,
 				CC1968BC239E6F4900EB49DB /* Сlasses */,
@@ -408,7 +408,7 @@
 			files = (
 				CC1968A9239E643B00EB49DB /* AppDelegate.swift in Sources */,
 				CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */,
-				CC1968CF239E76D600EB49DB /* SceneDelegate.swift in Sources */,
+				E8867C03239FFEB10016BF2A /* SceneDelegate.swift in Sources */,
 				CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */,
 				CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */,
 				CCF000FF239FB5F800786737 /* UIView+Style.swift in Sources */,
