@@ -10,19 +10,15 @@ import UIKit
 import SwifterSwift
 
 protocol LTFilteringDelegate: class {
-    func didFinishSelecting(filters: [Any])
+    func didFinishSelecting(filters: [Category])
 }
 
 final class LTFilterViewController: UIViewController {
-    private struct Constants {
-        static let rowHeight: CGFloat = 44.0
-    }
-    
     // MARK: - Properties
     
     weak var filteringDelegate: LTFilteringDelegate?
-    private var mockFilters = Array(repeating: "MOCK", count: 10)
-    private var selectedFilters: [Any] = []
+    var filters: [Category] = []
+    var selectedFilters: [Category] = []
     
     // MARK: - IBOutlets
     
@@ -72,13 +68,13 @@ final class LTFilterViewController: UIViewController {
 
 extension LTFilterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockFilters.count
+        return filters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ltFilterTableViewCell, for: indexPath)
         
-        cell?.setup(filterName: mockFilters[indexPath.row])
+        cell?.setup(filterName: filters[indexPath.row].strCategory)
         cell?.selectionStyle = .none
         
         return cell ?? UITableViewCell()
@@ -89,10 +85,16 @@ extension LTFilterViewController: UITableViewDataSource {
 
 extension LTFilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedFilters.append(mockFilters[indexPath.row])
+        selectedFilters.append(filters[indexPath.row])
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.rowHeight
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedFilters.removeAll(where: { $0.strCategory == filters[indexPath.row].strCategory })
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if selectedFilters.contains(where: { $0.strCategory == filters[indexPath.row].strCategory }) {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
+        }
     }
 }

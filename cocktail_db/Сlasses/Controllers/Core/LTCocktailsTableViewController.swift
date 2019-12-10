@@ -9,6 +9,7 @@
 import UIKit
 import MBProgressHUD
 import Rswift
+import SDWebImage
 
 final class LTCocktailsTableViewController: UITableViewController {
     private struct Constants {
@@ -17,16 +18,19 @@ final class LTCocktailsTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    private var filters: [Any] = []
+    private var allCategories: [Category] = []
+    private var filteredCategories: [Category] = []
+    private var categories: [Category] {
+        return filteredCategories.isEmpty ? allCategories : filteredCategories
+    }
+    private var networkManager: DrinksNetworkManager = DrinksNetworkManager()
     
     // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.showProgressHud()
-        navigationController?.hideProgressHud(afterDelay: 5)
-        
         setupRefreshControl()
+        getCategories()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,31 +46,31 @@ final class LTCocktailsTableViewController: UITableViewController {
     }
     
     private func updateNavigationItem() {
-        navigationItem.rightBarButtonItem?.image = filters.isEmpty ? R.image.ic_filter_off() : R.image.ic_filter_on()
+        navigationItem.rightBarButtonItem?.image = filteredCategories.isEmpty ? R.image.ic_filter_off() : R.image.ic_filter_on()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return categories.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return categories[section].cocktails.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cocktailCell, for: indexPath)
 
-        cell?.imageView?.image = R.image.img_cocktailCellPlaceholder()
-        cell?.textLabel?.attributedText = NSAttributedString(string: "Mock", attributes: [.font: R.font.robotoMedium(size: Constants.coktailCellFontSize) ?? .systemFont(ofSize: Constants.coktailCellFontSize)])
+        let cocktail = categories[indexPath.section].cocktails[indexPath.row]
+        cell?.imageView?.sd_setImage(with: cocktail.thumbnailURL, placeholderImage: R.image.img_cocktailCellPlaceholder())
+        cell?.textLabel?.attributedText = NSAttributedString(string: cocktail.drinkName, attributes: [.font: R.font.robotoMedium(size: Constants.coktailCellFontSize) ?? .systemFont(ofSize: Constants.coktailCellFontSize)])
 
         return cell ?? UITableViewCell()
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        // TODO: - Mock
-        return "Mock"
+        return categories[section].strCategory
     }
     
     // MARK: - Table view delegate
@@ -78,23 +82,54 @@ final class LTCocktailsTableViewController: UITableViewController {
     // MARK: - Actions
     
     @objc private func refresh(sender: AnyObject) {
-        tableView.refreshControl?.endRefreshing()
+        getCategories()
     }
 
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // TODO: - Mock
-        if let test = R.segue.ltCocktailsTableViewController.toFilterViewController(segue: segue) {
-            test.destination.filteringDelegate = self
+        if let segueInfo = R.segue.ltCocktailsTableViewController.toFilterViewController(segue: segue) {
+            segueInfo.destination.filters = allCategories
+            segueInfo.destination.selectedFilters = filteredCategories
+            segueInfo.destination.filteringDelegate = self
             navigationController?.hideProgressHud()
         }
     }
 }
 
 extension LTCocktailsTableViewController: LTFilteringDelegate {
-    func didFinishSelecting(filters: [Any]) {
-        self.filters = filters
+    func didFinishSelecting(filters: [Category]) {
+        filteredCategories = filters
         navigationController?.popToViewController(self, animated: true)
+        tableView.reloadData()
+    }
+}
+
+// MARK: - Networking
+
+extension LTCocktailsTableViewController {
+    private func getCategories() {
+        navigationController?.showProgressHud()
+        networkManager.getCategories { [weak self] (result, error) in
+            
+            let count = (result?.count ?? 1) - 1
+            let group = DispatchGroup()
+            self?.allCategories = result ?? []
+            
+            for i in 0...count{
+                group.enter()
+                self?.networkManager.getCocktails(for: result![i]) { (cocktails, error) in
+                    self?.allCategories[i].cocktails = cocktails ?? []
+                    group.leave()
+                }
+            }
+            
+            group.notify(queue: DispatchQueue.main) {
+               self?.navigationController?.hideProgressHud()
+                self?.tableView.refreshControl?.endRefreshing()
+                self?.tableView.reloadData()
+            }
+            
+        }
     }
 }
