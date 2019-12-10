@@ -23,14 +23,6 @@ private func JSONResponseDataFormatter(_ data: Data) -> Data {
 
 let cocktailDBProvider = MoyaProvider<CocktailDB>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 
-// MARK: - Provider support
-
-private extension String {
-    var urlEscaped: String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-    }
-}
-
 public enum CocktailDB {
     case categories
     case cocktails(String)
@@ -77,24 +69,4 @@ extension CocktailDB: TargetType {
 
 public func url(_ route: TargetType) -> String {
     return route.baseURL.appendingPathComponent(route.path).absoluteString
-}
-
-// MARK: - Response Handlers
-
-extension Moya.Response {
-    func mapNSArray() throws -> NSArray {
-        let any = try self.mapJSON()
-        guard let array = any as? NSArray else {
-            throw MoyaError.jsonMapping(self)
-        }
-        return array
-    }
-    
-    func mapDictionary() throws -> [String: Any] {
-        let any = try self.mapJSON()
-        guard let dictionary = any as? [String: Any] else {
-            throw MoyaError.jsonMapping(self)
-        }
-        return dictionary
-    }
 }

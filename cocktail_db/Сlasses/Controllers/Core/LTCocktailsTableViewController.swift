@@ -60,13 +60,11 @@ final class LTCocktailsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cocktailCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cocktailCell, for: indexPath)!
 
-        let cocktail = categories[indexPath.section].cocktails[indexPath.row]
-        cell?.imageView?.sd_setImage(with: cocktail.thumbnailURL, placeholderImage: R.image.img_cocktailCellPlaceholder())
-        cell?.textLabel?.attributedText = NSAttributedString(string: cocktail.drinkName, attributes: [.font: R.font.robotoMedium(size: Constants.coktailCellFontSize) ?? .systemFont(ofSize: Constants.coktailCellFontSize)])
+        cell.setup(cocktail: categories[indexPath.section].cocktails[indexPath.row])
 
-        return cell ?? UITableViewCell()
+        return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -131,5 +129,15 @@ extension LTCocktailsTableViewController {
             }
             
         }
+    }
+}
+
+class CustomImagedTableViewCell: UITableViewCell {
+    @IBOutlet private var thumbnailImageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+
+    func setup(cocktail: Cocktail) {
+        thumbnailImageView.sd_setImage(with: cocktail.thumbnailURL, placeholderImage: R.image.img_cocktailCellPlaceholder())
+        nameLabel.attributedText = NSAttributedString(string: cocktail.drinkName)
     }
 }
