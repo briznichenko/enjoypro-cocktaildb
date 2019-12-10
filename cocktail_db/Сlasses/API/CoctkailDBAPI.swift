@@ -11,6 +11,7 @@ import Moya
 
 // MARK: - Provider setup
 
+#if DEBUG
 private func JSONResponseDataFormatter(_ data: Data) -> Data {
     do {
         let dataAsJSON = try JSONSerialization.jsonObject(with: data)
@@ -21,7 +22,6 @@ private func JSONResponseDataFormatter(_ data: Data) -> Data {
     }
 }
 
-#if DEBUG
 let cocktailDBProvider = MoyaProvider<CocktailDB>(plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)])
 #else
 let cocktailDBProvider = MoyaProvider<CocktailDB>(plugins: [])

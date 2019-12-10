@@ -64,12 +64,11 @@ extension LTFilterViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ltFilterTableViewCell, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ltFilterTableViewCell, for: indexPath)!
         
-        cell?.setup(filterName: filters[indexPath.row].strCategory)
-        cell?.selectionStyle = .none
+        cell.setup(filterName: filters[indexPath.row].strCategory)
         
-        return cell ?? UITableViewCell()
+        return cell
     }
 }
 
