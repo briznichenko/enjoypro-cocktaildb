@@ -1,4 +1,4 @@
-module Pods_cocktail_db {
+framework module Pods_cocktail_db {
   umbrella header "Pods-cocktail_db-umbrella.h"
 
   export *

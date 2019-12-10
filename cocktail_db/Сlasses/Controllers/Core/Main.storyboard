@@ -1,26 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="g76-qH-D2w">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7uu-hF-WSg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Table View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="aOy-Fe-Hvd">
+            <objects>
+                <navigationController id="7uu-hF-WSg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nob-vY-5aM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="g76-qH-D2w" kind="relationship" relationship="rootViewController" id="UJk-Yj-rOT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHd-c8-ow4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-530" y="-58"/>
+        </scene>
+        <!--Drinks-->
         <scene sceneID="g7D-MJ-fDy">
             <objects>
-                <tableViewController id="g76-qH-D2w" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zYh-Wp-kpe">
+                <tableViewController storyboardIdentifier="LTCocktailsTableViewController" title="Drinks" id="g76-qH-D2w" customClass="LTCocktailsTableViewController" customModule="Cocktail_DB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="88" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zYh-Wp-kpe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="Cc6-W3-Eg7">
+                            <rect key="frame" x="0.0" y="144" width="414" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iHa-GD-wbL">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CocktailCell" textLabel="cqb-aM-Mjq" imageView="e2h-gs-uZb" style="IBUITableViewCellStyleDefault" id="iHa-GD-wbL">
+                                <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iHa-GD-wbL" id="Fti-In-QMF">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cqb-aM-Mjq">
+                                            <rect key="frame" x="87" y="0.0" width="307" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="img_cocktailCellPlaceholder" id="e2h-gs-uZb">
+                                            <rect key="frame" x="20" y="18" width="52" height="52"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -29,10 +71,97 @@
                             <outlet property="delegate" destination="g76-qH-D2w" id="O5h-yZ-y1f"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Drinks" id="OCF-LC-N3m">
+                        <barButtonItem key="rightBarButtonItem" image="ic_filter_off" style="plain" id="i4v-OT-FJu">
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <connections>
+                                <segue destination="Old-EI-vR3" kind="show" identifier="toFilterViewController" id="uvL-8a-c1M"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIR-x4-3QV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-75" y="-5"/>
+            <point key="canvasLocation" x="206" y="-58"/>
+        </scene>
+        <!--Filters-->
+        <scene sceneID="n84-eW-jdL">
+            <objects>
+                <viewController storyboardIdentifier="LTFilterTableViewController" id="Old-EI-vR3" customClass="LTFilterViewController" customModule="Cocktail_DB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mX5-33-2uO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fSz-lE-Svs">
+                                <rect key="frame" x="0.0" y="88" width="414" height="708"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="U4F-Fm-ztt">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="Old-EI-vR3" id="DhZ-gX-gcT"/>
+                                    <outlet property="delegate" destination="Old-EI-vR3" id="60W-MB-3Zv"/>
+                                </connections>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfT-QJ-neM">
+                                <rect key="frame" x="0.0" y="796" width="414" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K21-9H-hf5">
+                                        <rect key="frame" x="31" y="0.0" width="352" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SE8-uL-xy0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="19"/>
+                                        <state key="normal" title="Apply filter">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapApplyFilterButton:" destination="Old-EI-vR3" eventType="touchUpInside" id="vGP-zQ-IfD"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="K21-9H-hf5" firstAttribute="top" secondItem="mfT-QJ-neM" secondAttribute="top" id="9ZM-cU-ikX"/>
+                                    <constraint firstItem="K21-9H-hf5" firstAttribute="centerX" secondItem="mfT-QJ-neM" secondAttribute="centerX" id="RzS-ex-48T"/>
+                                    <constraint firstAttribute="bottom" secondItem="K21-9H-hf5" secondAttribute="bottom" id="fmO-WF-L6C"/>
+                                    <constraint firstItem="K21-9H-hf5" firstAttribute="width" secondItem="mfT-QJ-neM" secondAttribute="width" multiplier="0.851" id="l1U-J3-9LL"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="O2u-ad-PVa" firstAttribute="bottom" secondItem="mfT-QJ-neM" secondAttribute="bottom" constant="16" id="SGd-zE-Tka"/>
+                            <constraint firstItem="fSz-lE-Svs" firstAttribute="top" secondItem="O2u-ad-PVa" secondAttribute="top" id="UlZ-dz-Wii"/>
+                            <constraint firstItem="O2u-ad-PVa" firstAttribute="trailing" secondItem="fSz-lE-Svs" secondAttribute="trailing" id="ZT5-ei-P2Z"/>
+                            <constraint firstItem="mfT-QJ-neM" firstAttribute="leading" secondItem="O2u-ad-PVa" secondAttribute="leading" id="a7Y-O4-nfa"/>
+                            <constraint firstItem="fSz-lE-Svs" firstAttribute="leading" secondItem="mX5-33-2uO" secondAttribute="leading" id="byb-Wt-2wv"/>
+                            <constraint firstItem="O2u-ad-PVa" firstAttribute="trailing" secondItem="mfT-QJ-neM" secondAttribute="trailing" id="hUd-nw-Vos"/>
+                            <constraint firstItem="mfT-QJ-neM" firstAttribute="top" secondItem="fSz-lE-Svs" secondAttribute="bottom" id="zK1-Mf-CiG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="O2u-ad-PVa"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Filters" id="k2L-BU-iPM"/>
+                    <connections>
+                        <outlet property="filterButton" destination="K21-9H-hf5" id="hwn-Jl-NNC"/>
+                        <outlet property="tableView" destination="fSz-lE-Svs" id="AII-Ym-vgB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VST-OW-Mp1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957" y="-58"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ic_filter_off" width="29" height="29"/>
+        <image name="img_cocktailCellPlaceholder" width="52" height="52"/>
+    </resources>
 </document>

@@ -3,21 +3,40 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56277CF0EEB875199E7DB2D4 /* libPods-cocktail_db.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1197B6E3DB882495699E8768 /* libPods-cocktail_db.a */; };
+		5240B29D68C3C29162FC28D1 /* Pods_cocktail_db.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */; };
 		CC1968A9239E643B00EB49DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968A8239E643B00EB49DB /* AppDelegate.swift */; };
 		CC1968B2239E643E00EB49DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC1968B1239E643E00EB49DB /* Assets.xcassets */; };
 		CC1968C9239E705000EB49DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1968C8239E705000EB49DB /* LaunchScreen.storyboard */; };
 		CC1968CB239E71FC00EB49DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC1968CA239E71FC00EB49DB /* Main.storyboard */; };
 		CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */; };
-		CC1968CF239E76D600EB49DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968CE239E76D600EB49DB /* SceneDelegate.swift */; };
+		CC8E01A2239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01A1239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift */; };
+		CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */; };
+		CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B872239EB69C00D63DFF /* R.generated.swift */; };
+		CCEC489F239EC0F5009FC4AE /* LTFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC489E239EC0F5009FC4AE /* LTFilterViewController.swift */; };
+		CCF000DE239FADA000786737 /* LTFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF000DC239FADA000786737 /* LTFilterTableViewCell.swift */; };
+		CCF000DF239FADA000786737 /* LTFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF000DD239FADA000786737 /* LTFilterTableViewCell.xib */; };
+		CCF000F0239FB59700786737 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000E3239FB59700786737 /* Roboto-Medium.ttf */; };
+		CCF000F1239FB59700786737 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000E4239FB59700786737 /* Roboto-Light.ttf */; };
+		CCF000F2239FB59700786737 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000E5239FB59700786737 /* Roboto-Regular.ttf */; };
+		CCF000F3239FB59700786737 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000E6239FB59700786737 /* Roboto-MediumItalic.ttf */; };
+		CCF000F4239FB59700786737 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000E7239FB59700786737 /* Roboto-ThinItalic.ttf */; };
+		CCF000F5239FB59700786737 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000E8239FB59700786737 /* Roboto-BoldItalic.ttf */; };
+		CCF000F6239FB59700786737 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000E9239FB59700786737 /* Roboto-LightItalic.ttf */; };
+		CCF000F7239FB59700786737 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000EA239FB59700786737 /* Roboto-Italic.ttf */; };
+		CCF000F8239FB59700786737 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = CCF000EB239FB59700786737 /* LICENSE.txt */; };
+		CCF000F9239FB59700786737 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000EC239FB59700786737 /* Roboto-BlackItalic.ttf */; };
+		CCF000FA239FB59700786737 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000ED239FB59700786737 /* Roboto-Bold.ttf */; };
+		CCF000FB239FB59700786737 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000EE239FB59700786737 /* Roboto-Thin.ttf */; };
+		CCF000FC239FB59700786737 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CCF000EF239FB59700786737 /* Roboto-Black.ttf */; };
+		CCF000FF239FB5F800786737 /* UIView+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF000FE239FB5F800786737 /* UIView+Style.swift */; };
+		E8867C03239FFEB10016BF2A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8867C02239FFEB10016BF2A /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1197B6E3DB882495699E8768 /* libPods-cocktail_db.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-cocktail_db.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C874878D0298534A41064B5 /* Pods-cocktail_db.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocktail_db.debug.xcconfig"; path = "Target Support Files/Pods-cocktail_db/Pods-cocktail_db.debug.xcconfig"; sourceTree = "<group>"; };
 		AD99B699AE1A063181806215 /* Pods-cocktail_db.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cocktail_db.release.xcconfig"; path = "Target Support Files/Pods-cocktail_db/Pods-cocktail_db.release.xcconfig"; sourceTree = "<group>"; };
 		CC1968A5239E643B00EB49DB /* Cocktail DB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cocktail DB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,7 +46,28 @@
 		CC1968C8239E705000EB49DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC1968CA239E71FC00EB49DB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCocktailsTableViewController.swift; sourceTree = "<group>"; };
-		CC1968CE239E76D600EB49DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CC8E01A1239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+CocktailDBStyle.swift"; sourceTree = "<group>"; };
+		CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+MBProgressHud.swift"; sourceTree = "<group>"; };
+		CCB0B872239EB69C00D63DFF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		CCEC489E239EC0F5009FC4AE /* LTFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFilterViewController.swift; sourceTree = "<group>"; };
+		CCF000DC239FADA000786737 /* LTFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFilterTableViewCell.swift; sourceTree = "<group>"; };
+		CCF000DD239FADA000786737 /* LTFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTFilterTableViewCell.xib; sourceTree = "<group>"; };
+		CCF000E3239FB59700786737 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		CCF000E4239FB59700786737 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		CCF000E5239FB59700786737 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		CCF000E6239FB59700786737 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		CCF000E7239FB59700786737 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		CCF000E8239FB59700786737 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		CCF000E9239FB59700786737 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		CCF000EA239FB59700786737 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		CCF000EB239FB59700786737 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		CCF000EC239FB59700786737 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		CCF000ED239FB59700786737 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		CCF000EE239FB59700786737 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		CCF000EF239FB59700786737 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		CCF000FE239FB5F800786737 /* UIView+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Style.swift"; sourceTree = "<group>"; };
+		E8867C02239FFEB10016BF2A /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cocktail_db.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56277CF0EEB875199E7DB2D4 /* libPods-cocktail_db.a in Frameworks */,
+				5240B29D68C3C29162FC28D1 /* Pods_cocktail_db.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +85,7 @@
 		3F3DFFC2C419B70C392FF866 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1197B6E3DB882495699E8768 /* libPods-cocktail_db.a */,
+				F7092DAA0085D0AD0DBD0C94 /* Pods_cocktail_db.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -80,8 +120,9 @@
 		CC1968A7239E643B00EB49DB /* cocktail_db */ = {
 			isa = PBXGroup;
 			children = (
+				CCF000E0239FB58800786737 /* Resources */,
 				CC1968A8239E643B00EB49DB /* AppDelegate.swift */,
-				CC1968CE239E76D600EB49DB /* SceneDelegate.swift */,
+				E8867C02239FFEB10016BF2A /* SceneDelegate.swift */,
 				CC1968B1239E643E00EB49DB /* Assets.xcassets */,
 				CC1968C2239E6FA400EB49DB /* Supporting Files */,
 				CC1968BC239E6F4900EB49DB /* Сlasses */,
@@ -93,6 +134,7 @@
 		CC1968BC239E6F4900EB49DB /* Сlasses */ = {
 			isa = PBXGroup;
 			children = (
+				CCB06F35239EBB50000B6A9D /* Extensions */,
 				CC1968C1239E6F9600EB49DB /* Helpers */,
 				CC1968C0239E6F9100EB49DB /* API */,
 				CC1968BF239E6F7A00EB49DB /* Controllers */,
@@ -112,6 +154,7 @@
 		CC1968BE239E6F7300EB49DB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CCB0B86D239E9A9A00D63DFF /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +186,7 @@
 			children = (
 				CC1968C8239E705000EB49DB /* LaunchScreen.storyboard */,
 				CC1968B6239E643E00EB49DB /* Info.plist */,
+				CCB0B872239EB69C00D63DFF /* R.generated.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -152,8 +196,64 @@
 			children = (
 				CC1968CA239E71FC00EB49DB /* Main.storyboard */,
 				CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */,
+				CCEC489E239EC0F5009FC4AE /* LTFilterViewController.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		CCB06F35239EBB50000B6A9D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */,
+				CC8E01A1239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift */,
+				CCF000FE239FB5F800786737 /* UIView+Style.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CCB0B86D239E9A9A00D63DFF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CCF000DC239FADA000786737 /* LTFilterTableViewCell.swift */,
+				CCF000DD239FADA000786737 /* LTFilterTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CCF000E0239FB58800786737 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CCF000E1239FB58D00786737 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CCF000E1239FB58D00786737 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				CCF000E2239FB59700786737 /* Roboto */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CCF000E2239FB59700786737 /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				CCF000E3239FB59700786737 /* Roboto-Medium.ttf */,
+				CCF000E4239FB59700786737 /* Roboto-Light.ttf */,
+				CCF000E5239FB59700786737 /* Roboto-Regular.ttf */,
+				CCF000E6239FB59700786737 /* Roboto-MediumItalic.ttf */,
+				CCF000E7239FB59700786737 /* Roboto-ThinItalic.ttf */,
+				CCF000E8239FB59700786737 /* Roboto-BoldItalic.ttf */,
+				CCF000E9239FB59700786737 /* Roboto-LightItalic.ttf */,
+				CCF000EA239FB59700786737 /* Roboto-Italic.ttf */,
+				CCF000EB239FB59700786737 /* LICENSE.txt */,
+				CCF000EC239FB59700786737 /* Roboto-BlackItalic.ttf */,
+				CCF000ED239FB59700786737 /* Roboto-Bold.ttf */,
+				CCF000EE239FB59700786737 /* Roboto-Thin.ttf */,
+				CCF000EF239FB59700786737 /* Roboto-Black.ttf */,
+			);
+			path = Roboto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,9 +264,11 @@
 			buildConfigurationList = CC1968B9239E643E00EB49DB /* Build configuration list for PBXNativeTarget "cocktail_db" */;
 			buildPhases = (
 				4CCCAD1CDE67B7F2C80F2EF7 /* [CP] Check Pods Manifest.lock */,
+				CCB0B86E239EA11E00D63DFF /* Rswift */,
 				CC1968A1239E643B00EB49DB /* Sources */,
 				CC1968A2239E643B00EB49DB /* Frameworks */,
 				CC1968A3239E643B00EB49DB /* Resources */,
+				6F4AA539A08F41DFFB2F58F2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -215,9 +317,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF000FB239FB59700786737 /* Roboto-Thin.ttf in Resources */,
+				CCF000F0239FB59700786737 /* Roboto-Medium.ttf in Resources */,
+				CCF000F7239FB59700786737 /* Roboto-Italic.ttf in Resources */,
+				CCF000FA239FB59700786737 /* Roboto-Bold.ttf in Resources */,
+				CCF000F6239FB59700786737 /* Roboto-LightItalic.ttf in Resources */,
+				CCF000FC239FB59700786737 /* Roboto-Black.ttf in Resources */,
+				CCF000F9239FB59700786737 /* Roboto-BlackItalic.ttf in Resources */,
+				CCF000F2239FB59700786737 /* Roboto-Regular.ttf in Resources */,
 				CC1968C9239E705000EB49DB /* LaunchScreen.storyboard in Resources */,
+				CCF000F8239FB59700786737 /* LICENSE.txt in Resources */,
+				CCF000F1239FB59700786737 /* Roboto-Light.ttf in Resources */,
+				CCF000F3239FB59700786737 /* Roboto-MediumItalic.ttf in Resources */,
 				CC1968CB239E71FC00EB49DB /* Main.storyboard in Resources */,
+				CCF000F4239FB59700786737 /* Roboto-ThinItalic.ttf in Resources */,
 				CC1968B2239E643E00EB49DB /* Assets.xcassets in Resources */,
+				CCF000F5239FB59700786737 /* Roboto-BoldItalic.ttf in Resources */,
+				CCF000DF239FADA000786737 /* LTFilterTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +362,43 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6F4AA539A08F41DFFB2F58F2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cocktail_db/Pods-cocktail_db-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-cocktail_db/Pods-cocktail_db-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cocktail_db/Pods-cocktail_db-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCB0B86E239EA11E00D63DFF /* Rswift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = Rswift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$SRCROOT/cocktail_db/Supporting Files/R.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/cocktail_db/Supporting Files/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -255,7 +408,13 @@
 			files = (
 				CC1968A9239E643B00EB49DB /* AppDelegate.swift in Sources */,
 				CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */,
-				CC1968CF239E76D600EB49DB /* SceneDelegate.swift in Sources */,
+				E8867C03239FFEB10016BF2A /* SceneDelegate.swift in Sources */,
+				CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */,
+				CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */,
+				CCF000FF239FB5F800786737 /* UIView+Style.swift in Sources */,
+				CCEC489F239EC0F5009FC4AE /* LTFilterViewController.swift in Sources */,
+				CC8E01A2239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift in Sources */,
+				CCF000DE239FADA000786737 /* LTFilterTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
