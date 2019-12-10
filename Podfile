@@ -6,7 +6,6 @@ target 'cocktail_db' do
   
   pod 'Moya'
   pod 'SwifterSwift/SwiftStdlib'
-  pod 'SwifterSwift/UIKit'
   pod 'R.swift'
   pod 'MBProgressHUD'
   pod 'SDWebImage'

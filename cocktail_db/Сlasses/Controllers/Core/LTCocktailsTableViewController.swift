@@ -69,6 +69,12 @@ final class LTCocktailsTableViewController: UITableViewController {
         return "Mock"
     }
     
+    // MARK: - Table view delegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     // MARK: - Actions
     
     @objc private func refresh(sender: AnyObject) {
