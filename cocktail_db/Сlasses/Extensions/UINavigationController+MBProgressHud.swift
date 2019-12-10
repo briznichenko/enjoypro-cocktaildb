@@ -10,8 +10,11 @@ import UIKit
 import MBProgressHUD
 
 extension UINavigationController {
-    func showProgressHud(animated: Bool = true) {
+    func showProgressHud(animated: Bool = true, shouldStyle: Bool = true) {
         MBProgressHUD.showAdded(to: view, animated: animated)
+        if shouldStyle == true {
+            MBProgressHUD(for: view)?.styleProgressHud()
+        }
     }
     
     func hideProgressHud(animated: Bool = true, afterDelay: TimeInterval = 0) {

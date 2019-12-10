@@ -12,18 +12,37 @@ import Rswift
 
 final class LTCocktailsTableViewController: UITableViewController {
     private struct Constants {
-        static let cocktailCellReuseIdentifier = "CocktailCell"
-        static let toFilterViewControllerSegueIdentifier = "toFilterViewController"
+        static let coktailCellFontSize: CGFloat = 16.0
     }
     
     // MARK: - Properties
     
-    // MARK: - Lifecycle
+    private var filters: [Any] = []
+    
+    // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.showProgressHud()
-        navigationController?.hideProgressHud(afterDelay: 10)
+        navigationController?.hideProgressHud(afterDelay: 5)
+        
+        setupRefreshControl()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateNavigationItem()
+    }
+    
+    // MARK: User Interface
+    
+    private func setupRefreshControl() {
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
+    }
+    
+    private func updateNavigationItem() {
+        navigationItem.rightBarButtonItem?.image = filters.isEmpty ? R.image.ic_filter_off() : R.image.ic_filter_on()
     }
 
     // MARK: - Table view data source
@@ -37,27 +56,39 @@ final class LTCocktailsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cocktailCellReuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cocktailCell, for: indexPath)
 
-        cell.imageView?.image = R.image.cocktailCellPlaceholder()
-        cell.textLabel?.text = "Mock"
+        cell?.imageView?.image = R.image.img_cocktailCellPlaceholder()
+        cell?.textLabel?.attributedText = NSAttributedString(string: "Mock", attributes: [.font: R.font.robotoMedium(size: Constants.coktailCellFontSize) ?? .systemFont(ofSize: Constants.coktailCellFontSize)])
 
-        return cell
+        return cell ?? UITableViewCell()
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         // TODO: - Mock
         return "Mock"
     }
+    
+    // MARK: - Actions
+    
+    @objc private func refresh(sender: AnyObject) {
+        tableView.refreshControl?.endRefreshing()
+    }
 
     // MARK: - Navigation
-
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // TODO: - Mock
         if let test = R.segue.ltCocktailsTableViewController.toFilterViewController(segue: segue) {
-            test.destination.tableView.backgroundColor = .systemPink
+            test.destination.filteringDelegate = self
             navigationController?.hideProgressHud()
         }
+    }
+}
+
+extension LTCocktailsTableViewController: LTFilteringDelegate {
+    func didFinishSelecting(filters: [Any]) {
+        self.filters = filters
+        navigationController?.popToViewController(self, animated: true)
     }
 }
