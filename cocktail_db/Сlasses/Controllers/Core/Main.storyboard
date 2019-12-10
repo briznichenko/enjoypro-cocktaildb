@@ -44,26 +44,39 @@
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CocktailCell" textLabel="cqb-aM-Mjq" imageView="e2h-gs-uZb" style="IBUITableViewCellStyleDefault" id="iHa-GD-wbL">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cocktailCell" id="Clh-eR-pIx" customClass="CustomImagedTableViewCell" customModule="Cocktail_DB" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iHa-GD-wbL" id="Fti-In-QMF">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Clh-eR-pIx" id="Uhj-3L-NIy">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cqb-aM-Mjq">
-                                            <rect key="frame" x="87" y="0.0" width="307" height="88"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kze-di-07w">
+                                            <rect key="frame" x="92" y="34.5" width="302" height="19"/>
+                                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="img_cocktailCellPlaceholder" id="e2h-gs-uZb">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Vf-gV-Djq">
                                             <rect key="frame" x="20" y="18" width="52" height="52"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="6Vf-gV-Djq" secondAttribute="height" multiplier="1:1" id="1Uc-D5-aZb"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Kze-di-07w" firstAttribute="centerY" secondItem="Uhj-3L-NIy" secondAttribute="centerY" id="1lS-f2-NDP"/>
+                                        <constraint firstItem="6Vf-gV-Djq" firstAttribute="centerY" secondItem="Uhj-3L-NIy" secondAttribute="centerY" id="QVv-Pa-rM5"/>
+                                        <constraint firstItem="6Vf-gV-Djq" firstAttribute="height" secondItem="Uhj-3L-NIy" secondAttribute="height" multiplier="0.590909" id="Tmg-Cb-aaZ"/>
+                                        <constraint firstItem="Kze-di-07w" firstAttribute="leading" secondItem="6Vf-gV-Djq" secondAttribute="trailing" constant="20" id="TyQ-zs-XgR"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Kze-di-07w" secondAttribute="trailing" id="Vlb-QR-P5t"/>
+                                        <constraint firstItem="6Vf-gV-Djq" firstAttribute="leading" secondItem="Uhj-3L-NIy" secondAttribute="leadingMargin" id="ZhO-fw-pqg"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="Kze-di-07w" id="WhO-5N-pTV"/>
+                                    <outlet property="thumbnailImageView" destination="6Vf-gV-Djq" id="Gav-eh-XJf"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -72,7 +85,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Drinks" id="OCF-LC-N3m">
-                        <barButtonItem key="rightBarButtonItem" image="ic_filter_off" style="plain" id="i4v-OT-FJu">
+                        <barButtonItem key="rightBarButtonItem" image="ic_filter_off" style="done" id="i4v-OT-FJu">
                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <segue destination="Old-EI-vR3" kind="show" identifier="toFilterViewController" id="uvL-8a-c1M"/>
@@ -82,7 +95,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KIR-x4-3QV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="-58"/>
+            <point key="canvasLocation" x="205.79710144927537" y="-58.258928571428569"/>
         </scene>
         <!--Filters-->
         <scene sceneID="n84-eW-jdL">
@@ -161,7 +174,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_filter_off" width="29" height="29"/>
-        <image name="img_cocktailCellPlaceholder" width="52" height="52"/>
+        <image name="ic_filter_off" width="21" height="21"/>
     </resources>
 </document>

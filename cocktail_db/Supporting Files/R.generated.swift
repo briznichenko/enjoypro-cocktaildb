@@ -418,10 +418,10 @@ struct R: Rswift.Validatable {
 
   /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
   struct reuseIdentifier {
-    /// Reuse identifier `CocktailCell`.
-    static let cocktailCell: Rswift.ReuseIdentifier<UIKit.UITableViewCell> = Rswift.ReuseIdentifier(identifier: "CocktailCell")
     /// Reuse identifier `LTFilterTableViewCell`.
     static let ltFilterTableViewCell: Rswift.ReuseIdentifier<LTFilterTableViewCell> = Rswift.ReuseIdentifier(identifier: "LTFilterTableViewCell")
+    /// Reuse identifier `cocktailCell`.
+    static let cocktailCell: Rswift.ReuseIdentifier<CustomImagedTableViewCell> = Rswift.ReuseIdentifier(identifier: "cocktailCell")
 
     fileprivate init() {}
   }
@@ -512,7 +512,6 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if UIKit.UIImage(named: "ic_filter_off", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'ic_filter_off' is used in storyboard 'Main', but couldn't be loaded.") }
-        if UIKit.UIImage(named: "img_cocktailCellPlaceholder", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'img_cocktailCellPlaceholder' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().ltCocktailsTableViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'ltCocktailsTableViewController' could not be loaded from storyboard 'Main' as 'LTCocktailsTableViewController'.") }
