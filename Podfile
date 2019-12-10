@@ -9,6 +9,4 @@ target 'cocktail_db' do
   pod 'R.swift'
   pod 'MBProgressHUD'
   pod 'SDWebImage'
-  pod 'ReachabilitySwift'
-  pod 'SnapKit'
 end
