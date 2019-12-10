@@ -58,7 +58,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="img_cocktailCellPlaceholder" id="e2h-gs-uZb">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="img_cocktailCellPlaceholder" id="e2h-gs-uZb">
                                             <rect key="frame" x="20" y="18" width="52" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -161,7 +161,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ic_filter_off" width="29" height="29"/>
+        <image name="ic_filter_off" width="21" height="21"/>
         <image name="img_cocktailCellPlaceholder" width="52" height="52"/>
     </resources>
 </document>

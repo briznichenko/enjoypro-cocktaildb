@@ -67,14 +67,6 @@ extension CocktailDB: TargetType {
     }
     
     public var sampleData: Data {
-//        switch self {
-//        case .zen:
-//            return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-//        case .userProfile(let name):
-//            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: String.Encoding.utf8)!
-//        case .userRepositories(let name):
-//            return "[{\"name\": \"\(name)\"}]".data(using: String.Encoding.utf8)!
-//        }
         return Data()
     }
     
