@@ -38,13 +38,9 @@ final class LTFilterViewController: UIViewController {
     private func configureUIComponents() {
         setupTableView()
         setupFilterButton()
-        setupBackButton()
     }
     
     private func setupTableView() {
-        tableView.allowsMultipleSelection = true
-        tableView.delegate = self
-        tableView.dataSource = self
         tableView.register(R.nib.ltFilterTableViewCell)
     }
     
@@ -52,11 +48,7 @@ final class LTFilterViewController: UIViewController {
         filterButton.applyBorderedStyle()
         filterButton.setTitleColor(.gray, for: .highlighted)
     }
-    
-    private func setupBackButton() {
-        navigationItem.backBarButtonItem?.tintColor = .black
-    }
-    
+        
     // MARK: - IBActions
     
     @IBAction private func didTapApplyFilterButton(_ sender: UIButton) {
