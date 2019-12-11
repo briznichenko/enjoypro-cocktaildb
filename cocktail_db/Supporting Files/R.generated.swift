@@ -354,7 +354,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 5 images.
   struct image {
     /// Image `ic_checkmark`.
     static let ic_checkmark = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_checkmark")
@@ -364,6 +364,8 @@ struct R: Rswift.Validatable {
     static let ic_filter_on = Rswift.ImageResource(bundle: R.hostingBundle, name: "ic_filter_on")
     /// Image `img_cocktailCellPlaceholder`.
     static let img_cocktailCellPlaceholder = Rswift.ImageResource(bundle: R.hostingBundle, name: "img_cocktailCellPlaceholder")
+    /// Image `img_splash_logo`.
+    static let img_splash_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "img_splash_logo")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "ic_checkmark", bundle: ..., traitCollection: ...)`
@@ -390,6 +392,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "img_cocktailCellPlaceholder", bundle: ..., traitCollection: ...)`
     static func img_cocktailCellPlaceholder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.img_cocktailCellPlaceholder, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "img_splash_logo", bundle: ..., traitCollection: ...)`
+    static func img_splash_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.img_splash_logo, compatibleWith: traitCollection)
     }
     #endif
 
@@ -485,6 +494,7 @@ struct _R: Rswift.Validatable {
       let name = "LaunchScreen"
 
       static func validate() throws {
+        if UIKit.UIImage(named: "img_splash_logo", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'img_splash_logo' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
       }
