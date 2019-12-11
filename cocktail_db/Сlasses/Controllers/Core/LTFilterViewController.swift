@@ -16,9 +16,9 @@ protocol LTFilteringDelegate: class {
 final class LTFilterViewController: UIViewController {
     // MARK: - Properties
     
+    var modelController: DrinksModelController!
+    
     weak var filteringDelegate: LTFilteringDelegate?
-    var filters: [Category] = []
-    var selectedFilters: [Category] = []
     
     // MARK: - IBOutlets
     
@@ -52,7 +52,7 @@ final class LTFilterViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction private func didTapApplyFilterButton(_ sender: UIButton) {
-        filteringDelegate?.didFinishSelecting(filters: selectedFilters)
+        filteringDelegate?.didFinishSelecting(filters: [])
     }
 }
 
@@ -60,14 +60,14 @@ final class LTFilterViewController: UIViewController {
 
 extension LTFilterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filters.count
+        return modelController.numberOfCategories()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ltFilterTableViewCell, for: indexPath)!
         
-        cell.setup(filterName: filters[indexPath.row].strCategory)
-        
+        try? cell.setup(category: modelController.categoryAt(section: indexPath.row))
+ 
         return cell
     }
 }
@@ -76,16 +76,16 @@ extension LTFilterViewController: UITableViewDataSource {
 
 extension LTFilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedFilters.append(filters[indexPath.row])
+        try? modelController.selectCategoryAt(section: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selectedFilters.removeAll(where: { $0.strCategory == filters[indexPath.row].strCategory })
+        try? modelController.deselectCategoryAt(section: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if selectedFilters.contains(where: { $0.strCategory == filters[indexPath.row].strCategory }) {
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
+        if let selected = try? modelController.isCategorySelectedAt(section: indexPath.row), selected == true {
+            tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
         }
     }
 }

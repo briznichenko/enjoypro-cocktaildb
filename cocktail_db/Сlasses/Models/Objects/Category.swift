@@ -10,7 +10,6 @@ import UIKit
 
 struct Category: Codable {
     let strCategory: String
-    var cocktails: [Cocktail] = []
     
     enum CodingKeys: String, CodingKey {
         case strCategory
