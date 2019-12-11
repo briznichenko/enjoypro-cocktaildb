@@ -8,12 +8,21 @@
 
 import UIKit
 
-struct CategoryCocktailMap: Equatable {
+class CategoryCocktailMap: Equatable {
     static func == (lhs: CategoryCocktailMap, rhs: CategoryCocktailMap) -> Bool {
         return lhs.category == rhs.category
     }
     
+    init (category: CocktailCategory, cocktails: [Cocktail]) {
+        self.category = category
+        self.cocktails = cocktails
+    }
+    
+    func updateCocktails(_ cocktails: [Cocktail]) {
+        self.cocktails = cocktails
+    }
+    
     let category: CocktailCategory
-    let cocktails: [Cocktail]
+    private (set) var cocktails: [Cocktail]
     var isFilter: Bool = false
 }

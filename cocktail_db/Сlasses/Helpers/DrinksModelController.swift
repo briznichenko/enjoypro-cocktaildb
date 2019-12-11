@@ -31,7 +31,7 @@ final class DrinksModelController: NSObject {
         self.delegate = delegate
     }
     
-    func setCategories(_ data: [CategoryCocktailMap]) {
+    private func setCategories(_ data: [CategoryCocktailMap]) {
         categories = data
     }
     
@@ -40,6 +40,15 @@ final class DrinksModelController: NSObject {
         categories.append(categoryWithCocktails)
         delegate?.didChangeCategoryAt(section: categories.lastIndex(of: categoryWithCocktails) ?? 0)
         
+    }
+    
+    private func setCocktails(_ cocktails: [Cocktail], forCategory category: CocktailCategory) {
+        if let updateIndex = categories.firstIndex(where: { $0.category == category }) {
+            categories[updateIndex].updateCocktails(cocktails)
+            delegate?.didChangeCategoryAt(section: updateIndex)
+        } else {
+            addCategory(category, with: cocktails)
+        }
     }
     
     func numberOfCategories() -> Int {
@@ -79,5 +88,15 @@ final class DrinksModelController: NSObject {
     guard section < categories.count else { return }
         categories[section].isFilter = false
         delegate?.didChangeCategoryAt(section: section)
+    }
+}
+
+extension DrinksModelController: DrinksNetworkControllerLoadDelegate {
+    func didLoadCategories(_ categories: [CocktailCategory]) {
+        setCategories(categories.map { CategoryCocktailMap(category: $0, cocktails: []) })
+    }
+    
+    func didLoadCategory(_ category: CocktailCategory, withCocktails cocktails: [Cocktail]) {
+        setCocktails(cocktails, forCategory: category)
     }
 }

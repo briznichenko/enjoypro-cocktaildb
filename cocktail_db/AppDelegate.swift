@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let navigationController = window?.rootViewController as? UINavigationController,
             let controller = navigationController.viewControllers.first as? LTCocktailsTableViewController {
             controller.modelController = DrinksModelController(delegate: controller)
+            controller.networkController = DrinksNetworkController(delegate: controller.modelController, uiDelegate: controller)
         }
         
         return true
