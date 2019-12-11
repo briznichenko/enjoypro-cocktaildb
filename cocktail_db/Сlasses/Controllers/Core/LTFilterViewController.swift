@@ -78,10 +78,12 @@ extension LTFilterViewController: UITableViewDataSource {
 extension LTFilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         modelController.selectCategoryAt(section: indexPath.row)
+        filterButton.isEnabled = true
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         modelController.deselectCategoryAt(section: indexPath.row)
+        filterButton.isEnabled = true
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
