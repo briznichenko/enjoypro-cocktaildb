@@ -66,7 +66,9 @@ extension LTFilterViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.ltFilterTableViewCell, for: indexPath)!
         
-        try? cell.setup(category: modelController.categoryAt(section: indexPath.row))
+        if let category = modelController.categoryAt(section: indexPath.row) {
+            cell.setup(category: category)
+        }
  
         return cell
     }
@@ -76,15 +78,15 @@ extension LTFilterViewController: UITableViewDataSource {
 
 extension LTFilterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        try? modelController.selectCategoryAt(section: indexPath.row)
+        modelController.selectCategoryAt(section: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        try? modelController.deselectCategoryAt(section: indexPath.row)
+        modelController.deselectCategoryAt(section: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if let selected = try? modelController.isCategorySelectedAt(section: indexPath.row), selected == true {
+        if modelController.isCategorySelectedAt(section: indexPath.row) == true {
             tableView.selectRow(at: indexPath, animated: true, scrollPosition: .top)
         }
     }

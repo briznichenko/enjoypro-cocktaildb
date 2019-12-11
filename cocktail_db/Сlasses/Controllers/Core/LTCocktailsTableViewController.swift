@@ -43,8 +43,8 @@ final class LTCocktailsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if modelController.isFiltered, let isSelected = try? modelController.isCategorySelectedAt(section: section) {
-            return isSelected ? modelController.numberOfCocktailsFor(section: section) : 0
+        if modelController.isFiltered {
+            return  modelController.isCategorySelectedAt(section: section) ? modelController.numberOfCocktailsFor(section: section) : 0
         }
         return modelController.numberOfCocktailsFor(section: section)
     }
@@ -52,20 +52,17 @@ final class LTCocktailsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cocktailCell, for: indexPath)!
 
-        do {
-            let cocktail = try modelController.cocktailAt(indexPath: indexPath)
+        if let cocktail = modelController.cocktailAt(indexPath: indexPath) {
             cell.setup(cocktail: cocktail)
-        } catch {
-            print(error.localizedDescription)
         }
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let title = try? modelController.categoryAt(section: section).strCategory
-        if modelController.isFiltered, let isSelected = try? modelController.isCategorySelectedAt(section: section) {
-            return isSelected ? title : nil
+        let title = modelController.categoryAt(section: section)?.strCategory
+        if modelController.isFiltered {
+            return modelController.isCategorySelectedAt(section: section) ? title : nil
         }
         return title
     }

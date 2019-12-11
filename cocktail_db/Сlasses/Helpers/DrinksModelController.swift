@@ -9,14 +9,6 @@
 import UIKit
 import SwifterSwift
 
-enum DrinksModelControllerError: Error {
-    case indexPathOutOfRange
-    
-    var localizedDescription: String {
-        return "Index out of range!"
-    }
-}
-
 protocol DrinksModelControllerDelegate {
     func didChangeCategoryAt(section: Int)
 }
@@ -59,32 +51,32 @@ final class DrinksModelController: NSObject {
         return categories[section].cocktails.count
     }
     
-    func categoryAt(section: Int) throws -> Category {
-        guard section < categories.count else { throw DrinksModelControllerError.indexPathOutOfRange }
+    func categoryAt(section: Int) -> Category? {
+        guard section < categories.count else { return nil }
         return categories[section].category
     }
     
-    func isCategorySelectedAt(section: Int) throws -> Bool? {
-        guard section < categories.count else { throw DrinksModelControllerError.indexPathOutOfRange }
+    func isCategorySelectedAt(section: Int) -> Bool {
+        guard section < categories.count else { return false }
         return categories[section].isFilter
     }
     
-    func cocktailAt(indexPath: IndexPath) throws -> Cocktail {
+    func cocktailAt(indexPath: IndexPath) -> Cocktail? {
         guard indexPath.section < categories.count,
             indexPath.row < categories[indexPath.section].cocktails.count else {
-                throw DrinksModelControllerError.indexPathOutOfRange
+                return nil
         }
         return categories[indexPath.section].cocktails[indexPath.row]
     }
     
-    func selectCategoryAt(section: Int) throws {
-    guard section < categories.count else { throw DrinksModelControllerError.indexPathOutOfRange }
+    func selectCategoryAt(section: Int) {
+    guard section < categories.count else { return }
         categories[section].isFilter = true
         delegate?.didChangeCategoryAt(section: section)
     }
     
-    func deselectCategoryAt(section: Int) throws {
-    guard section < categories.count else { throw DrinksModelControllerError.indexPathOutOfRange }
+    func deselectCategoryAt(section: Int) {
+    guard section < categories.count else { return }
         categories[section].isFilter = false
         delegate?.didChangeCategoryAt(section: section)
     }
