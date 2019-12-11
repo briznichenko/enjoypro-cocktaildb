@@ -25,7 +25,12 @@ final class DrinksModelController: NSObject {
     private var categories: [CategoryWithCocktails] = [] {
         didSet {
             categories.removeDuplicates()
+            categories.sort { $0.category.strCategory < $1.category.strCategory }
         }
+    }
+    
+    var isFiltered: Bool {
+        return categories.filter { $0.isFilter == true }.isEmpty == false
     }
     
     var delegate: DrinksModelControllerDelegate?
@@ -49,10 +54,6 @@ final class DrinksModelController: NSObject {
         return categories.count
     }
     
-    func numberOfFilteredCategories() -> Int {
-        return categories.filter { $0.isSelected == true }.count
-    }
-    
     func numberOfCocktailsFor(section: Int) -> Int {
         guard section < categories.count else { return 0 }
         return categories[section].cocktails.count
@@ -63,9 +64,9 @@ final class DrinksModelController: NSObject {
         return categories[section].category
     }
     
-    func isCategorySelectedAt(section: Int) throws -> Bool {
+    func isCategorySelectedAt(section: Int) throws -> Bool? {
         guard section < categories.count else { throw DrinksModelControllerError.indexPathOutOfRange }
-        return categories[section].isSelected
+        return categories[section].isFilter
     }
     
     func cocktailAt(indexPath: IndexPath) throws -> Cocktail {
@@ -78,13 +79,13 @@ final class DrinksModelController: NSObject {
     
     func selectCategoryAt(section: Int) throws {
     guard section < categories.count else { throw DrinksModelControllerError.indexPathOutOfRange }
-        categories[section].isSelected = true
+        categories[section].isFilter = true
         delegate?.didChangeCategoryAt(section: section)
     }
     
     func deselectCategoryAt(section: Int) throws {
     guard section < categories.count else { throw DrinksModelControllerError.indexPathOutOfRange }
-        categories[section].isSelected = false
+        categories[section].isFilter = false
         delegate?.didChangeCategoryAt(section: section)
     }
 }

@@ -15,5 +15,5 @@ struct CategoryWithCocktails: Equatable {
     
     let category: Category
     let cocktails: [Cocktail]
-    var isSelected: Bool = true
+    var isFilter: Bool = false
 }

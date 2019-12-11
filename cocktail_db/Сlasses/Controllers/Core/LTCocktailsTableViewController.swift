@@ -43,7 +43,9 @@ final class LTCocktailsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let isSelected = try? modelController.isCategorySelectedAt(section: section), isSelected == true else { return 0}
+        if modelController.isFiltered, let isSelected = try? modelController.isCategorySelectedAt(section: section) {
+            return isSelected ? modelController.numberOfCocktailsFor(section: section) : 0
+        }
         return modelController.numberOfCocktailsFor(section: section)
     }
 
@@ -61,9 +63,11 @@ final class LTCocktailsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let title = try? modelController.categoryAt(section: section).strCategory,
-            let isSelected = try? modelController.isCategorySelectedAt(section: section) else { return nil }
-        return isSelected == true ? title : nil
+        let title = try? modelController.categoryAt(section: section).strCategory
+        if modelController.isFiltered, let isSelected = try? modelController.isCategorySelectedAt(section: section) {
+            return isSelected ? title : nil
+        }
+        return title
     }
     
     // MARK: - Table view delegate
@@ -125,7 +129,7 @@ extension LTCocktailsTableViewController {
 
 extension LTCocktailsTableViewController: DrinksModelControllerDelegate {
     func didChangeCategoryAt(section: Int) {
-        navigationItem.rightBarButtonItem?.image = modelController.numberOfFilteredCategories() > 0 ? R.image.ic_filter_on() : R.image.ic_filter_off()
+        navigationItem.rightBarButtonItem?.image = modelController.isFiltered ? R.image.ic_filter_on() : R.image.ic_filter_off()
     }
 }
 
