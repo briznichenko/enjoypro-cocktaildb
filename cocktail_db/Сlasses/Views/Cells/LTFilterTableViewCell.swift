@@ -11,7 +11,7 @@ import UIKit
 class LTFilterTableViewCell: UITableViewCell {
     @IBOutlet private var filterNameLabel: UILabel!
 
-    func setup(category: Category) {
+    func setup(category: CocktailCategory) {
         filterNameLabel.text = category.strCategory
     }
 

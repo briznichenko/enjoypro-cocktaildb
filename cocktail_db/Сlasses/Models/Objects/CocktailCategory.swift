@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Category: Codable {
+struct CocktailCategory: Codable, Equatable {
     let strCategory: String
     
     enum CodingKeys: String, CodingKey {

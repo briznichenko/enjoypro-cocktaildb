@@ -19,7 +19,7 @@ class DrinksNetworkManager: NSObject {
     }
    
     
-    func getCategories(completion: @escaping ([Category]?, Error?) -> ()) {
+    func getCategories(completion: @escaping ([CocktailCategory]?, Error?) -> ()) {
         provider.request(.categories) { (response) in
             switch response.result {
             case .failure(let error):
@@ -27,7 +27,7 @@ class DrinksNetworkManager: NSObject {
             case .success(let value):
                 let decoder = JSONDecoder()
                 do {
-                    let categoriesDictionary = try decoder.decode([String: [Category]].self, from: value.data)
+                    let categoriesDictionary = try decoder.decode([String: [CocktailCategory]].self, from: value.data)
                     completion(categoriesDictionary[Constants.drinksJSONKey], nil)
                 } catch let error {
                     completion(nil, error)
@@ -36,7 +36,7 @@ class DrinksNetworkManager: NSObject {
         }
     }
     
-    func getCocktails(for category: Category, completion: @escaping ([Cocktail]?, Error?) -> ()) {
+    func getCocktails(for category: CocktailCategory, completion: @escaping ([Cocktail]?, Error?) -> ()) {
         provider.request(.cocktails(category.strCategory)) { (response) in
             switch response.result {
             case .failure(let error):

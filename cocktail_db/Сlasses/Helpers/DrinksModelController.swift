@@ -9,12 +9,12 @@
 import UIKit
 import SwifterSwift
 
-protocol DrinksModelControllerDelegate {
+protocol DrinksModelControllerDelegate: class {
     func didChangeCategoryAt(section: Int)
 }
 
 final class DrinksModelController: NSObject {
-    private var categories: [CategoryWithCocktails] = [] {
+    private var categories: [CategoryCocktailMap] = [] {
         didSet {
             categories.removeDuplicates()
             categories.sort { $0.category.strCategory < $1.category.strCategory }
@@ -25,18 +25,18 @@ final class DrinksModelController: NSObject {
         return categories.filter { $0.isFilter == true }.isEmpty == false
     }
     
-    var delegate: DrinksModelControllerDelegate?
+    weak var delegate: DrinksModelControllerDelegate?
     
     init(delegate: DrinksModelControllerDelegate) {
         self.delegate = delegate
     }
     
-    func setCategories(_ data: [CategoryWithCocktails]) {
+    func setCategories(_ data: [CategoryCocktailMap]) {
         categories = data
     }
     
-    func addCategory(_ category: Category, with cocktails: [Cocktail]) {
-        let categoryWithCocktails = CategoryWithCocktails(category: category, cocktails: cocktails)
+    func addCategory(_ category: CocktailCategory, with cocktails: [Cocktail]) {
+        let categoryWithCocktails = CategoryCocktailMap(category: category, cocktails: cocktails)
         categories.append(categoryWithCocktails)
         delegate?.didChangeCategoryAt(section: categories.lastIndex(of: categoryWithCocktails) ?? 0)
         
@@ -51,7 +51,7 @@ final class DrinksModelController: NSObject {
         return categories[section].cocktails.count
     }
     
-    func categoryAt(section: Int) -> Category? {
+    func categoryAt(section: Int) -> CocktailCategory? {
         guard section < categories.count else { return nil }
         return categories[section].category
     }

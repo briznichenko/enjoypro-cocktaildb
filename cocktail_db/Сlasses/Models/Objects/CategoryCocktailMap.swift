@@ -8,12 +8,12 @@
 
 import UIKit
 
-struct CategoryWithCocktails: Equatable {
-    static func == (lhs: CategoryWithCocktails, rhs: CategoryWithCocktails) -> Bool {
-        return lhs.category.strCategory == rhs.category.strCategory
+struct CategoryCocktailMap: Equatable {
+    static func == (lhs: CategoryCocktailMap, rhs: CategoryCocktailMap) -> Bool {
+        return lhs.category == rhs.category
     }
     
-    let category: Category
+    let category: CocktailCategory
     let cocktails: [Cocktail]
     var isFilter: Bool = false
 }
