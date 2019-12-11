@@ -23,14 +23,17 @@ final class LTCocktailsTableViewController: UITableViewController {
     private var categories: [Category] {
         return filteredCategories.isEmpty ? allCategories : filteredCategories
     }
-    private var networkManager: DrinksNetworkManager = DrinksNetworkManager()
+    var networkController: DrinksNetworkController!
     
     // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
+        // MARK: - TODO move to AppDelegate
+        networkController = DrinksNetworkController(delegate: self)
+        
         super.viewDidLoad()
         setupRefreshControl()
-        getCategories()
+        loadDrinks()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,10 +80,14 @@ final class LTCocktailsTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        networkController.loadNext()
+    }
+    
     // MARK: - Actions
     
     @objc private func refresh(sender: AnyObject) {
-        getCategories()
+        loadDrinks()
     }
 
     // MARK: - Navigation
@@ -106,28 +113,15 @@ extension LTCocktailsTableViewController: LTFilteringDelegate {
 // MARK: - Networking
 
 extension LTCocktailsTableViewController {
-    private func getCategories() {
+    private func loadDrinks() {
         navigationController?.showProgressHud()
-        networkManager.getCategories { [weak self] (result, error) in
-            
-            let count = (result?.count ?? 1) - 1
-            let group = DispatchGroup()
-            self?.allCategories = result ?? []
-            
-            for i in 0...count{
-                group.enter()
-                self?.networkManager.getCocktails(for: result![i]) { (cocktails, error) in
-                    self?.allCategories[i].cocktails = cocktails ?? []
-                    group.leave()
-                }
+        networkController.start { [weak self] (error) in
+            if let error = error {
+                print(error.localizedDescription)
             }
-            
-            group.notify(queue: DispatchQueue.main) {
-               self?.navigationController?.hideProgressHud()
-                self?.tableView.refreshControl?.endRefreshing()
-                self?.tableView.reloadData()
-            }
-            
+            self?.navigationController?.hideProgressHud()
+            self?.tableView.refreshControl?.endRefreshing()
+            self?.tableView.reloadData()
         }
     }
 }
@@ -141,5 +135,13 @@ class CustomImagedTableViewCell: UITableViewCell {
     func setup(cocktail: Cocktail) {
         thumbnailImageView.sd_setImage(with: cocktail.thumbnailURL, placeholderImage: R.image.img_cocktailCellPlaceholder())
         nameLabel.attributedText = NSAttributedString(string: cocktail.drinkName)
+    }
+}
+
+// MARK: - TODO move to model controller
+
+extension LTCocktailsTableViewController: DrinksNetworkControllerDelegate {
+    func didLoadCategory(_ category: Category) {
+        allCategories.append(category)
     }
 }
