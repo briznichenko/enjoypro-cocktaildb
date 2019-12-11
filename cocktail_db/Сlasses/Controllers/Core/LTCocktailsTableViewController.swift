@@ -18,11 +18,7 @@ final class LTCocktailsTableViewController: UITableViewController {
     
     // MARK: - Properties
     
-    private var allCategories: [Category] = []
-    private var filteredCategories: [Category] = []
-    private var categories: [Category] {
-        return filteredCategories.isEmpty ? allCategories : filteredCategories
-    }
+    var modelController: DrinksModelController!
     private var networkManager: DrinksNetworkManager = DrinksNetworkManager()
     
     // MARK: - ViewController Lifecycle
@@ -33,42 +29,42 @@ final class LTCocktailsTableViewController: UITableViewController {
         getCategories()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        updateNavigationItem()
-    }
-    
     // MARK: User Interface
     
     private func setupRefreshControl() {
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.addTarget(self, action: #selector(refresh(sender:)), for: .valueChanged)
     }
-    
-    private func updateNavigationItem() {
-        navigationItem.rightBarButtonItem?.image = filteredCategories.isEmpty ? R.image.ic_filter_off() : R.image.ic_filter_on()
-    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return categories.count
+        return modelController.numberOfCategories()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories[section].cocktails.count
+        if modelController.isFiltering {
+            return  modelController.isCategorySelectedAt(section: section) ? modelController.numberOfCocktailsFor(section: section) : 0
+        }
+        return modelController.numberOfCocktailsFor(section: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.cocktailCell, for: indexPath)!
 
-        cell.setup(cocktail: categories[indexPath.section].cocktails[indexPath.row])
+        if let cocktail = modelController.cocktailAt(indexPath: indexPath) {
+            cell.setup(cocktail: cocktail)
+        }
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return categories[section].strCategory
+        let title = modelController.categoryAt(section: section)?.strCategory
+        if modelController.isFiltering {
+            return modelController.isCategorySelectedAt(section: section) ? title : nil
+        }
+        return title
     }
     
     // MARK: - Table view delegate
@@ -87,8 +83,7 @@ final class LTCocktailsTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let segueInfo = R.segue.ltCocktailsTableViewController.toFilterViewController(segue: segue) {
-            segueInfo.destination.filters = allCategories
-            segueInfo.destination.selectedFilters = filteredCategories
+            segueInfo.destination.modelController = modelController
             segueInfo.destination.filteringDelegate = self
             navigationController?.hideProgressHud()
         }
@@ -97,7 +92,6 @@ final class LTCocktailsTableViewController: UITableViewController {
 
 extension LTCocktailsTableViewController: LTFilteringDelegate {
     func didFinishSelecting(filters: [Category]) {
-        filteredCategories = filters
         navigationController?.popToViewController(self, animated: true)
         tableView.reloadData()
     }
@@ -108,16 +102,13 @@ extension LTCocktailsTableViewController: LTFilteringDelegate {
 extension LTCocktailsTableViewController {
     private func getCategories() {
         navigationController?.showProgressHud()
-        networkManager.getCategories { [weak self] (result, error) in
-            
-            let count = (result?.count ?? 1) - 1
+        networkManager.getCategories { [weak self] (categories, error) in
             let group = DispatchGroup()
-            self?.allCategories = result ?? []
-            
-            for i in 0...count{
+            for i in 0..<(categories ?? []).count{
+                guard let categories = categories else { continue }
                 group.enter()
-                self?.networkManager.getCocktails(for: result![i]) { (cocktails, error) in
-                    self?.allCategories[i].cocktails = cocktails ?? []
+                self?.networkManager.getCocktails(for: categories[i]) { (cocktails, error) in
+                    self?.modelController.addCategory(categories[i], with: cocktails ?? [])
                     group.leave()
                 }
             }
@@ -127,8 +118,15 @@ extension LTCocktailsTableViewController {
                 self?.tableView.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
             }
-            
         }
+    }
+}
+
+// MARK: - Model Controller
+
+extension LTCocktailsTableViewController: DrinksModelControllerDelegate {
+    func didChangeCategoryAt(section: Int) {
+        navigationItem.rightBarButtonItem?.image = modelController.isFiltering ? R.image.ic_filter_on() : R.image.ic_filter_off()
     }
 }
 

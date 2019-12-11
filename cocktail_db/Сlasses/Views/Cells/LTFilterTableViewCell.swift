@@ -11,8 +11,8 @@ import UIKit
 class LTFilterTableViewCell: UITableViewCell {
     @IBOutlet private var filterNameLabel: UILabel!
 
-    func setup(filterName: String) {
-        filterNameLabel.text = filterName
+    func setup(category: CocktailCategory) {
+        filterNameLabel.text = category.strCategory
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
