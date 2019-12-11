@@ -128,11 +128,6 @@ extension LTCocktailsTableViewController: DrinksNetworkControllerUIDelegate {
         navigationController?.hideProgressHud()
         tableView.refreshControl?.endRefreshing()
         tableView.reloadData()
-        
-        //        let lastScrollOffset = tableView.contentOffset
-        //        tableView.reloadData()
-        //        tableView.layer.removeAllAnimations()
-        //        tableView.setContentOffset(lastScrollOffset, animated: false)
     }
 }
 
