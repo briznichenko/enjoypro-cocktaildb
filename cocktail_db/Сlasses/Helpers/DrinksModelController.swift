@@ -21,7 +21,7 @@ final class DrinksModelController: NSObject {
         }
     }
     
-    var isFiltered: Bool {
+    var isFiltering: Bool {
         return categories.filter { $0.isFilter == true }.isEmpty == false
     }
     
