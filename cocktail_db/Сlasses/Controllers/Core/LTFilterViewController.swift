@@ -25,7 +25,6 @@ final class LTFilterViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var filterButton: UIButton!
     
-    
     // MARK: - ViewController Lifecycle
     
     override func viewDidLoad() {
