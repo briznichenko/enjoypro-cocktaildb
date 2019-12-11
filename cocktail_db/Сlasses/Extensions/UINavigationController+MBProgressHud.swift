@@ -11,6 +11,7 @@ import MBProgressHUD
 
 extension UINavigationController {
     func showProgressHud(animated: Bool = true, shouldStyle: Bool = true) {
+        guard MBProgressHUD(for: view) == nil else { return }
         MBProgressHUD.showAdded(to: view, animated: animated)
         if shouldStyle == true {
             MBProgressHUD(for: view)?.styleProgressHud()
