@@ -91,7 +91,7 @@ final class DrinksModelController: NSObject {
     }
 }
 
-extension DrinksModelController: DrinksNetworkControllerDelegate {
+extension DrinksModelController: DrinksNetworkControllerLoadDelegate {
     func didLoadCategories(_ categories: [CocktailCategory]) {
         setCategories(categories.map { CategoryCocktailMap(category: $0, cocktails: []) })
     }

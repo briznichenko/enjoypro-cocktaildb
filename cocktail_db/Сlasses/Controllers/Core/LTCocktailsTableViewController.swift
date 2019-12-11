@@ -112,15 +112,27 @@ extension LTCocktailsTableViewController: LTFilteringDelegate {
 
 extension LTCocktailsTableViewController {
     private func loadDrinks() {
-        navigationController?.showProgressHud()
-        networkController.start { [weak self] (error) in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            self?.navigationController?.hideProgressHud()
-            self?.tableView.refreshControl?.endRefreshing()
-            self?.tableView.reloadData()
+        networkController.reload()
+    }
+}
+
+extension LTCocktailsTableViewController: DrinksNetworkControllerUIDelegate {
+    func didStartLoading(shouldShowHUD: Bool) {
+        if shouldShowHUD {
+            navigationController?.showProgressHud()
         }
+        tableView.refreshControl?.beginRefreshing()
+    }
+    
+    func didFinishLoading(_ error: Error?) {
+        navigationController?.hideProgressHud()
+        tableView.refreshControl?.endRefreshing()
+        tableView.reloadData()
+        
+        //        let lastScrollOffset = tableView.contentOffset
+        //        tableView.reloadData()
+        //        tableView.layer.removeAllAnimations()
+        //        tableView.setContentOffset(lastScrollOffset, animated: false)
     }
 }
 
@@ -129,11 +141,6 @@ extension LTCocktailsTableViewController {
 extension LTCocktailsTableViewController: DrinksModelControllerDelegate {
     func didChangeCategoryAt(section: Int) {
         navigationItem.rightBarButtonItem?.image = modelController.isFiltering ? R.image.ic_filter_on() : R.image.ic_filter_off()
-        guard tableView.numberOfSections > 0 else { return }
-        let lastScrollOffset = tableView.contentOffset
-        tableView.reloadData()
-        tableView.layer.removeAllAnimations()
-        tableView.setContentOffset(lastScrollOffset, animated: false)
     }
 }
 
