@@ -11,5 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        if let navigationController = window?.rootViewController as? UINavigationController,
+            let controller = navigationController.viewControllers.first as? LTCocktailsTableViewController {
+            controller.modelController = DrinksModelController(delegate: controller)
+            controller.networkController = DrinksNetworkController(delegate: controller.modelController)
+        }
+        
+        return true
+    }
 }
 

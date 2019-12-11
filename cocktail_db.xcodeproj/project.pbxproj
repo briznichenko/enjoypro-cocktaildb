@@ -15,12 +15,14 @@
 		CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */; };
 		CC8E01A2239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01A1239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift */; };
 		CC8E01A6239FF720002265AD /* CoctkailDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01A5239FF720002265AD /* CoctkailDBAPI.swift */; };
-		CC8E01A923A00463002265AD /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01A823A00463002265AD /* Category.swift */; };
+		CC8E01A923A00463002265AD /* CocktailCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01A823A00463002265AD /* CocktailCategory.swift */; };
 		CC8E01AB23A004F2002265AD /* Cocktail.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01AA23A004F2002265AD /* Cocktail.swift */; };
 		CC8E01AD23A00729002265AD /* DrinksNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01AC23A00729002265AD /* DrinksNetworkManager.swift */; };
 		CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */; };
 		CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B872239EB69C00D63DFF /* R.generated.swift */; };
 		CCE4AC3723A124540051D920 /* DrinksNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4AC3623A124540051D920 /* DrinksNetworkController.swift */; };
+		CCE4AC3323A0FD0F0051D920 /* DrinksModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4AC3223A0FD0F0051D920 /* DrinksModelController.swift */; };
+		CCE4AC3523A0FD280051D920 /* CategoryCocktailMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4AC3423A0FD280051D920 /* CategoryCocktailMap.swift */; };
 		CCEC489F239EC0F5009FC4AE /* LTFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC489E239EC0F5009FC4AE /* LTFilterViewController.swift */; };
 		CCF000DE239FADA000786737 /* LTFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF000DC239FADA000786737 /* LTFilterTableViewCell.swift */; };
 		CCF000DF239FADA000786737 /* LTFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF000DD239FADA000786737 /* LTFilterTableViewCell.xib */; };
@@ -53,12 +55,14 @@
 		CC1968CC239E75FA00EB49DB /* LTCocktailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTCocktailsTableViewController.swift; sourceTree = "<group>"; };
 		CC8E01A1239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MBProgressHUD+CocktailDBStyle.swift"; sourceTree = "<group>"; };
 		CC8E01A5239FF720002265AD /* CoctkailDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoctkailDBAPI.swift; sourceTree = "<group>"; };
-		CC8E01A823A00463002265AD /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		CC8E01A823A00463002265AD /* CocktailCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailCategory.swift; sourceTree = "<group>"; };
 		CC8E01AA23A004F2002265AD /* Cocktail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cocktail.swift; sourceTree = "<group>"; };
 		CC8E01AC23A00729002265AD /* DrinksNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksNetworkManager.swift; sourceTree = "<group>"; };
 		CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+MBProgressHud.swift"; sourceTree = "<group>"; };
 		CCB0B872239EB69C00D63DFF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		CCE4AC3623A124540051D920 /* DrinksNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksNetworkController.swift; sourceTree = "<group>"; };
+		CCE4AC3223A0FD0F0051D920 /* DrinksModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksModelController.swift; sourceTree = "<group>"; };
+		CCE4AC3423A0FD280051D920 /* CategoryCocktailMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCocktailMap.swift; sourceTree = "<group>"; };
 		CCEC489E239EC0F5009FC4AE /* LTFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFilterViewController.swift; sourceTree = "<group>"; };
 		CCF000DC239FADA000786737 /* LTFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFilterTableViewCell.swift; sourceTree = "<group>"; };
 		CCF000DD239FADA000786737 /* LTFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTFilterTableViewCell.xib; sourceTree = "<group>"; };
@@ -191,6 +195,7 @@
 			children = (
 				CC8E01AC23A00729002265AD /* DrinksNetworkManager.swift */,
 				CCE4AC3623A124540051D920 /* DrinksNetworkController.swift */,
+				CCE4AC3223A0FD0F0051D920 /* DrinksModelController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -218,8 +223,9 @@
 		CC8E01A723A00425002265AD /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				CC8E01A823A00463002265AD /* Category.swift */,
+				CC8E01A823A00463002265AD /* CocktailCategory.swift */,
 				CC8E01AA23A004F2002265AD /* Cocktail.swift */,
+				CCE4AC3423A0FD280051D920 /* CategoryCocktailMap.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -430,7 +436,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CC1968A9239E643B00EB49DB /* AppDelegate.swift in Sources */,
+				CCE4AC3523A0FD280051D920 /* CategoryCocktailMap.swift in Sources */,
 				CC1968CD239E75FA00EB49DB /* LTCocktailsTableViewController.swift in Sources */,
+				CCE4AC3323A0FD0F0051D920 /* DrinksModelController.swift in Sources */,
 				CC8E01AD23A00729002265AD /* DrinksNetworkManager.swift in Sources */,
 				E8867C03239FFEB10016BF2A /* SceneDelegate.swift in Sources */,
 				CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */,
@@ -440,7 +448,7 @@
 				CC8E01A2239FDDDF002265AD /* MBProgressHUD+CocktailDBStyle.swift in Sources */,
 				CC8E01A6239FF720002265AD /* CoctkailDBAPI.swift in Sources */,
 				CCF000DE239FADA000786737 /* LTFilterTableViewCell.swift in Sources */,
-				CC8E01A923A00463002265AD /* Category.swift in Sources */,
+				CC8E01A923A00463002265AD /* CocktailCategory.swift in Sources */,
 				CC8E01AB23A004F2002265AD /* Cocktail.swift in Sources */,
 				CCE4AC3723A124540051D920 /* DrinksNetworkController.swift in Sources */,
 			);
