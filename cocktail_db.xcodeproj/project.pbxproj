@@ -20,6 +20,7 @@
 		CC8E01AD23A00729002265AD /* DrinksNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8E01AC23A00729002265AD /* DrinksNetworkManager.swift */; };
 		CCB06F37239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */; };
 		CCB0B873239EB69C00D63DFF /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB0B872239EB69C00D63DFF /* R.generated.swift */; };
+		CCE4AC3723A124540051D920 /* DrinksNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE4AC3623A124540051D920 /* DrinksNetworkController.swift */; };
 		CCEC489F239EC0F5009FC4AE /* LTFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC489E239EC0F5009FC4AE /* LTFilterViewController.swift */; };
 		CCF000DE239FADA000786737 /* LTFilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF000DC239FADA000786737 /* LTFilterTableViewCell.swift */; };
 		CCF000DF239FADA000786737 /* LTFilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCF000DD239FADA000786737 /* LTFilterTableViewCell.xib */; };
@@ -57,6 +58,7 @@
 		CC8E01AC23A00729002265AD /* DrinksNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksNetworkManager.swift; sourceTree = "<group>"; };
 		CCB06F36239EBB6B000B6A9D /* UINavigationController+MBProgressHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+MBProgressHud.swift"; sourceTree = "<group>"; };
 		CCB0B872239EB69C00D63DFF /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		CCE4AC3623A124540051D920 /* DrinksNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinksNetworkController.swift; sourceTree = "<group>"; };
 		CCEC489E239EC0F5009FC4AE /* LTFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFilterViewController.swift; sourceTree = "<group>"; };
 		CCF000DC239FADA000786737 /* LTFilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LTFilterTableViewCell.swift; sourceTree = "<group>"; };
 		CCF000DD239FADA000786737 /* LTFilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LTFilterTableViewCell.xib; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				CC8E01AC23A00729002265AD /* DrinksNetworkManager.swift */,
+				CCE4AC3623A124540051D920 /* DrinksNetworkController.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				CCF000DE239FADA000786737 /* LTFilterTableViewCell.swift in Sources */,
 				CC8E01A923A00463002265AD /* Category.swift in Sources */,
 				CC8E01AB23A004F2002265AD /* Cocktail.swift in Sources */,
+				CCE4AC3723A124540051D920 /* DrinksNetworkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
